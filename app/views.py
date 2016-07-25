@@ -20,29 +20,19 @@ ems = np.load(FULL_EMOJIS_PATH)
 
 # Not all emojis can have a vector. Some of them might are rarely / never used...
 # So collect the valid ones.
-valid_ems = []
-for i in range(len(ems)):
-    try:
-        if len(model[ems[i]]):
-            valid_ems.append(ems[i])
-    except:
-        pass
-valid_ems = np.array(valid_ems)
+valid_ems = np.array([x for x in ems if x in model.vocab.keys()])
 print ('total {} valid emojis found...'.format(len(valid_ems)))
 
-
 def scores(word, top_n=10):
-    res = []
-    for i in range(len(ems)):
-        try:
-            res.append((ems[i], model.similarity(ems[i], word)))
-        except:
-            continue
+    if word in model.vocab.keys():
+        res = np.empty(len(valid_ems), dtype=[('emoji', np.dtype(('U', 10))), ('cosine_similarity', 'f')])
+        for i in range(len(res)):
+            res[i] = (valid_ems[i], model.similarity(word, valid_ems[i]))
+        res['cosine_similarity'] = np.round(res['cosine_similarity'], decimals=3)
 
-    res = np.array(res, dtype=[('emoji', np.dtype(('U', 10))), ('cosine_similarity', 'f')])
-    res['cosine_similarity'] = np.round(res['cosine_similarity'], decimals=3)
-
-    return np.sort(res, order='cosine_similarity')[::-1][:top_n]
+        return np.sort(res, order='cosine_similarity')[::-1][:top_n]
+    else:
+        return []
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -59,4 +49,4 @@ def index():
 def search(keyword):
     results = scores(keyword.strip().lower(), top_n=10)
     return render_template('search.html', keyword=keyword, res=results, title='search', emj=np.random.choice(valid_ems),
-                            valid='True' if results.shape[0] else 'False')
+                            valid='True' if len(results) else 'False')
