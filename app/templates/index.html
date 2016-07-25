@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Yelo 👋</h1>
+    </br>
+
+    <p>
+        <font size="5">
+            This is a little fun project to look for the closest emojis for any given word.
+
+            </br>
+
+            It has been trained on Norwegian Twitter data and hence works best in that language. But, it also works for some English words and any well known entities whose names don't change much globally.
+
+            </br>
+
+            So you can try any global brands 🍟 / places 🗽 / people 💀 / things 🖥... you imagine..
+
+            </br>
+            </br>
+
+            Nuff said... ✋
+        </font>
+    </p>
+
+    <form action="" method="post" name="searching">
+        {{ form.hidden_tag() }}
+        <font size="5">
+            <p>
+                Enter a (Norwegian 🇳🇴 ) word or an emoji 😻:
+                {{ form.search_word(size=20) }}
+                <input type="submit" value="search">
+            </p>
+        </font>
+    </form>
+{% endblock %}

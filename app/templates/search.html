@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2> Closest emojis to "{{ keyword }}" ! (search from the addressbar directly 💃🏻 ) </h2>
+
+    <h2> Did I tell you that you can also search using emojis 😎 ?? ... try
+        <font size="8">
+            {{ emj }}
+        </font>
+    </h2>
+
+    <table>
+        <tr>
+          <th> word </th>
+          <th> cosine similarity </th>
+        </tr>
+
+        <font size="10">
+
+        {% if valid %}
+            {% for result in res %}
+              <tr>
+                <td>
+                    <font size=15>
+                        {{ result[0] }}
+                    </font>
+                </th>
+                <td> {{ result[1] }} </th>
+              </tr>
+
+            {% endfor %}
+        {% endif %}
+
+        </font>
+
+    </table>
+
+{% endblock %}
