@@ -12,8 +12,11 @@ It's a Flask web app that you can run comfortably in your browser.
 4. Place it in the ```data``` directory.
 5. run ``` python run.py ```
 
-Enjoy :)
+#### Example:
+Here's one when searched for ``` KFC ```
+![example_kfc](https://cloud.githubusercontent.com/assets/6368653/17087702/d8465b18-5210-11e6-9af2-01ce1d90b390.jpg)
 
+Enjoy :)
 
 #### References:
 For awesome tutorial on Flask, check Miguel's blogpost [here](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).
