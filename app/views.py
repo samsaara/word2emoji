@@ -24,6 +24,8 @@ valid_ems = np.array([x for x in ems if x in model.vocab.keys()])
 print ('total {} valid emojis found...'.format(len(valid_ems)))
 
 def scores(word, top_n=10):
+    # strip skin tones before looking for its vector
+    word = ''.join([x for x in word if ord(x) not in range(127995, 128000)])
     if word in model.vocab.keys():
         res = np.empty(len(valid_ems), dtype=[('emoji', np.dtype(('U', 10))), ('cosine_similarity', 'f')])
         for i in range(len(res)):
