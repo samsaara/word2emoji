@@ -14,7 +14,7 @@ It's a Flask web app that you can run comfortably in your browser.
 
 #### Example:
 Here's one when searched for ``` KFC ```
-![example_kfc](https://cloud.githubusercontent.com/assets/6368653/17087702/d8465b18-5210-11e6-9af2-01ce1d90b390.jpg)
+![example_kfc](https://cloud.githubusercontent.com/assets/6368653/17087784/056c6ca8-5212-11e6-892d-59b2512153d1.jpg)
 
 Enjoy :)
 
