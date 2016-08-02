@@ -25,7 +25,8 @@ Also clickable emojis would be 👌🏼.
 Enjoy :)
 
 #### References:
-For awesome tutorial on Flask, check Miguel's blogpost [here](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).
+1. For awesome tutorial on Flask, check Miguel's blogpost [here](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).
+2. Uses lightweight [Skeleton](http://getskeleton.com) CSS...
 
 Github Pages [link](https://vaddina.github.io/word2emoji/)
 

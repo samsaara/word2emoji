@@ -1,2 +1,4 @@
-from app import app
+from search import app
+
 app.run(debug=True)
+# app.run(host='0.0.0.0')

@@ -1,35 +1,76 @@
 {% extends "base.html" %}
+
 {% block content %}
-    <h1>Yelo 👋</h1>
-    </br>
 
-    <p>
-        <font size="5">
-            This is a little fun project to look for the closest emojis for any given word.
+    <div class="container">
+      <div class="row">
+        <div class="one-half column" style="margin-top: 10%">
+          <h4>Hi</h4>
+        </div>
+      </div>
+    </div>
 
-            </br>
+    <div class="container">
+        <form id='index_form' method="post" role="form">
+            <div class="row">
 
-            It has been trained on Norwegian Twitter data and hence works best in that language. But, it also works for some English words and any well known entities whose names don't change much globally.
+                <div class="six columns">
+                  <h5> Enter a word or try this emoji: {{ emj }} </h5>
+                  <input class="u-full-width" type="text" placeholder="beer" id="search_string" name="search_string">
+                </div>
+            </div>
 
-            </br>
+            <input class="button-primary" type="submit" value="Search"></input>
+        </form>
+    </div>
 
-            So you can try any global brands 🍟 / places 🗽 / people 💀 / things 🖥... you imagine..
 
-            </br>
-            </br>
+    {% if search_string %}
 
-            Nuff said... ✋
-        </font>
-    </p>
+        <div class="container">
 
-    <form action="" method="post" name="searching">
-        {{ form.hidden_tag() }}
-        <font size="5">
-            <p>
-                Enter a (Norwegian 🇳🇴 ) word or an emoji 😻:
-                {{ form.search_word(size=20) }}
-                <input type="submit" value="search">
-            </p>
-        </font>
-    </form>
+            {% if valid %}
+
+                    <div class="row">
+                      <div class="one-half column">
+                        <h5> Searched for <strong> <a> {{ search_string }} </a> </strong>  </h5>
+                      </div>
+                    </div>
+
+                    <table class="u-custom-width">
+                      <thead>
+                        <tr>
+                          <th>Emoji</th>
+                          <th>Cosine Similarity</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+
+                          {% for result in res %}
+
+                            <tr>
+                              <td><h3> {{result[0]}} </h3> </td>
+                              <td>{{result[1]}}</td>
+                            </tr>
+
+                          {% endfor %}
+
+                      </tbody>
+                    </table>
+
+            {% else %}
+
+                <div class="row">
+                    <h5> No results for <strong> <a> {{ search_string }} </a> </strong>...  😞 😭  </h5>
+                </div>
+
+
+            {% endif %}
+
+        </div>
+
+    {% endif %}
+
+
 {% endblock %}
