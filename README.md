@@ -12,10 +12,15 @@ It's a Flask web app that you can run comfortably in your browser.
 4. Place it in the ```data``` directory.
 5. run ``` python run.py ```
 
-#### Example:
-Here's one when searched for ``` KFC ```
+#### Demo:
+![word2emoji demo](https://cloud.githubusercontent.com/assets/6368653/17326353/1f639136-58b1-11e6-8e09-75f1ce2bb467.gif)
 
-![example_kfc](https://cloud.githubusercontent.com/assets/6368653/17087784/056c6ca8-5212-11e6-892d-59b2512153d1.jpg)
+
+##### ToDo:
+Currently with the way I show emojis, it works best on Mac OS as it has native emoji support. So I'll to have to change a bit to make it compatible with other systems ( & web browsers).
+Also clickable emojis would be 👌🏼.
+
+
 
 Enjoy :)
 
