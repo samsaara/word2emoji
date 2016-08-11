@@ -15,8 +15,6 @@ MODEL_PATH = './data/w2v_norwegian_twitter_model.bin'
 assert os.path.exists(MODEL_PATH), 'Word2Vec model file not found... please point it to the right location...'
 
 FULL_EMOJIS_PATH='./data/emojis.npy'
-MODEL_VARIANCE = 0.25
-
 model = Word2Vec.load_word2vec_format(MODEL_PATH, binary=True)
 ems = np.load(FULL_EMOJIS_PATH)
 
@@ -61,15 +59,21 @@ def scores(words, top_n=10):
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
-def index():
+@app.route('/search/<search_string>', methods=['GET', 'POST'])
+def index(search_string=None):
 
     valid = False
     results = None
     emj = None
-    search_string = None
+
+    print (request.method, search_string)
 
     if request.method == 'POST':
         search_string = request.form['search_string'].strip().lower()
+        results = scores(search_string)
+        valid = True if len(results) else False
+
+    elif search_string:
         results = scores(search_string)
         valid = True if len(results) else False
 
