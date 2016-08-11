@@ -17,8 +17,7 @@ It's a Flask web app that you can run comfortably in your browser.
 
 
 ##### ToDo:
-Currently with the way I show emojis, it works best on Mac OS as it has native emoji support. So I'll to have to change a bit to make it compatible with other systems ( & web browsers).
-Also clickable emojis would be 👌🏼.
+Clickable emojis would be 👌🏼.
 
 
 
