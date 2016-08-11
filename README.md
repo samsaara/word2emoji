@@ -13,12 +13,7 @@ It's a Flask web app that you can run comfortably in your browser.
 5. run ``` python run.py ```
 
 #### Demo:
-![word2emoji demo](https://cloud.githubusercontent.com/assets/6368653/17326353/1f639136-58b1-11e6-8e09-75f1ce2bb467.gif)
-
-
-##### ToDo:
-Clickable emojis would be 👌🏼.
-
+![word2emoji](https://cloud.githubusercontent.com/assets/6368653/17585488/626d0dec-5fbc-11e6-937e-579bd798f2b9.gif)
 
 
 Enjoy :)
